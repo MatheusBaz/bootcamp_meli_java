@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PraticaIntegradora02 {
+public class Main {
     //variáveis globais
     Scanner entrada = new Scanner(System.in);
     List<Participante> listaCircuitoPequeno = new ArrayList<>();
@@ -12,7 +12,7 @@ public class PraticaIntegradora02 {
     List<Participante> listaCircuitoAvancado = new ArrayList<>();
 
     public static void main(String[] args) {
-        PraticaIntegradora02 main = new PraticaIntegradora02();
+        Main main = new Main();
 
         main.menuPrincipal();
     }
