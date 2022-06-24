@@ -53,15 +53,15 @@ public class PraticaIntegradora02 {
         System.out.println("2 - Circuito medio");
         System.out.println("3 - Circuito avancado");
 
-        int circuito = entrada.nextInt();
+        String circuito = entrada.next();
         switch (circuito){
-            case 1:
+            case "1":
                 circuitoPequeno(participante);
                 break;
-            case 2:
+            case "2":
                 circuitoMedio(participante);
                 break;
-            case 3:
+            case "3":
                 circuitoAvancado(participante);
                 break;
             default:
@@ -163,52 +163,34 @@ public class PraticaIntegradora02 {
         System.out.println("3 - Circuito avancado");
         System.out.println("0 - Voltar");
 
-        int circuito = entrada.nextInt();
+        String circuito = entrada.next();
 
         percorreArrayCircuitos(circuito);
     }
 
-    private void percorreArrayCircuitos (int circuito) {
-        if (circuito == 1) {
+    private void percorreArrayCircuitos (String circuito) {
+        if (circuito.equals("1")) {
             for (Participante participante : listaCircuitoPequeno) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao() +
-                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
-                                    "\n     - RG: " + participante.getRg() +
-                                    "\n     - Idade: " + participante.getIdade() +
-                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
-                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
-                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+                participante.mostrarDadosParticipante();
             }
             mostrarParticipantesDoCircuito();
         }
 
-        if (circuito == 2) {
+        if (circuito.equals("2")) {
             for (Participante participante : listaCircuitoMedio) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao() +
-                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
-                                    "\n     - RG: " + participante.getRg() +
-                                    "\n     - Idade: " + participante.getIdade() +
-                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
-                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
-                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+                participante.mostrarDadosParticipante();
             }
             mostrarParticipantesDoCircuito();
         }
 
-        if (circuito == 3) {
+        if (circuito.equals("3")) {
             for (Participante participante : listaCircuitoAvancado) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao() +
-                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
-                                    "\n     - RG: " + participante.getRg() +
-                                    "\n     - Idade: " + participante.getIdade() +
-                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
-                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
-                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+                participante.mostrarDadosParticipante();
             }
             mostrarParticipantesDoCircuito();
         }
 
-        if (circuito == 0) {
+        if (circuito.equals("0")) {
             menuPrincipal();
         }
     }
@@ -217,27 +199,30 @@ public class PraticaIntegradora02 {
         System.out.println("Qual o nome do participante?");
         System.out.println("0 - Voltar");
 
-        String escolhaUser = entrada.next();
+        String escolhaNome = entrada.next();
 
-        excluirParticipante(escolhaUser);
+        System.out.println("Qual o sobrenome do participante?");
+        String escolhaSobrenome = entrada.next();
+
+        excluirParticipante(escolhaNome, escolhaSobrenome);
     }
 
-    private void excluirParticipante(String escolhaUser) {
-        if (escolhaUser.equals("0"))
+    private void excluirParticipante(String nome, String sobrenome) {
+        if (nome.equals("0"))
             menuPrincipal();
 
-        percorreArrayCircuitoParaExcluir(listaCircuitoPequeno,escolhaUser);
-        percorreArrayCircuitoParaExcluir(listaCircuitoMedio,escolhaUser);
-        percorreArrayCircuitoParaExcluir(listaCircuitoAvancado,escolhaUser);
+        percorreArrayCircuitoParaExcluir(listaCircuitoPequeno,nome,sobrenome);
+        percorreArrayCircuitoParaExcluir(listaCircuitoMedio,nome,sobrenome);
+        percorreArrayCircuitoParaExcluir(listaCircuitoAvancado,nome,sobrenome);
 
         // só chega aqui se não encontrar um participante!
         System.out.println("Nao foi encontrado um participante com esse nome! \n");
         menuPrincipal();
     }
 
-    private void percorreArrayCircuitoParaExcluir(List<Participante> listaCircuito, String escolhaUser) {
+    private void percorreArrayCircuitoParaExcluir(List<Participante> listaCircuito, String nome, String sobrenome) {
         for (Participante participante : listaCircuito) {
-            if (participante.getNome().equals(escolhaUser)) {
+            if (participante.getNome().equals(nome) && participante.getSobrenome().equals(sobrenome)) {
                 listaCircuito.remove(participante);
                 System.out.println("Participante excluido!! \n");
                 menuPrincipal();
@@ -255,19 +240,19 @@ public class PraticaIntegradora02 {
         System.out.println("2 - Mostrar dados dos participantes");
         System.out.println("3 - Excluir um participante");
         System.out.println("0 - Encerrar");
-        int escolhaUser = entrada.nextInt();
+        String escolhaUser = entrada.next();
 
         switch (escolhaUser) {
-            case 1:
+            case "1":
                 cadastrarDadosParticipante();
                 break;
-            case 2:
+            case "2":
                 mostrarParticipantesDoCircuito();
                 break;
-            case 3:
+            case "3":
                 cancelarCadastroParticipante();
                 break;
-            case 0:
+            case "0":
                 System.exit(0);
                 break;
             default:

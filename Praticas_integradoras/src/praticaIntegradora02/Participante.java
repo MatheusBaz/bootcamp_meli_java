@@ -73,4 +73,14 @@ public class Participante {
     public void setNumeroInscricao(int numeroInscricao) {
         this.numeroInscricao = numeroInscricao;
     }
+
+    public void mostrarDadosParticipante() {
+        System.out.println("Participante numero " + numeroInscricao +
+                "\n     - Nome completo: " + nome + " " + sobrenome +
+                "\n     - RG: " + rg +
+                "\n     - Idade: " + idade +
+                "\n     - Contato: " + numeroDeCelular +
+                "\n     - Numero de emergencia: " + numeroDeEmergencia +
+                "\n     - Tipo sangue: " + tipoSanguineo);
+    }
 }
