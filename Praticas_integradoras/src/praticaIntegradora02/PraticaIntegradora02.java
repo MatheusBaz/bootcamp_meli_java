@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PraticaIntegradora02 {
+    //variáveis globais
     Scanner entrada = new Scanner(System.in);
     List<Participante> listaCircuitoPequeno = new ArrayList<>();
     List<Participante> listaCircuitoMedio = new ArrayList<>();
@@ -65,77 +66,9 @@ public class PraticaIntegradora02 {
                 break;
             default:
                 System.out.println("Opcao nao conhecida");
+                adicionaParticipanteNoCircuito(participante);
         }
 
-    }
-
-    private void mostrarParticipantesDoCircuito () {
-        System.out.println("De qual circuito voce deseja ver os participantes?");
-        System.out.println("1 - Circuito pequeno");
-        System.out.println("2 - Circuito medio");
-        System.out.println("3 - Circuito avancado");
-        System.out.println("0 - Voltar");
-
-        int circuito = entrada.nextInt();
-
-        percorreArrayCircuitos(circuito);
-    }
-
-    private void percorreArrayCircuitos (int circuito) {
-        if (circuito == 1) {
-            for (Participante participante : listaCircuitoPequeno) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao());
-                System.out.println("     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome());
-                System.out.println("     - RG: " + participante.getRg());
-                System.out.println("     - Idade: " + participante.getIdade());
-                System.out.println("     - Contato: " + participante.getNumeroDeCelular());
-                System.out.println("     - Numero de emergencia: " + participante.getNumeroDeEmergencia());
-                System.out.println("     - Tipo sangue: " + participante.getTipoSanguineo());
-            }
-            mostrarParticipantesDoCircuito();
-        }
-
-        if (circuito == 2) {
-            for (Participante participante : listaCircuitoMedio) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao());
-                System.out.println("     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome());
-                System.out.println("     - RG: " + participante.getRg());
-                System.out.println("     - Idade: " + participante.getIdade());
-                System.out.println("     - Contato: " + participante.getNumeroDeCelular());
-                System.out.println("     - Numero de emergencia: " + participante.getNumeroDeEmergencia());
-                System.out.println("     - Tipo sangue: " + participante.getTipoSanguineo());
-            }
-            mostrarParticipantesDoCircuito();
-        }
-
-        if (circuito == 3) {
-            for (Participante participante : listaCircuitoAvancado) {
-                System.out.println("Participante numero " + participante.getNumeroInscricao());
-                System.out.println("     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome());
-                System.out.println("     - RG: " + participante.getRg());
-                System.out.println("     - Idade: " + participante.getIdade());
-                System.out.println("     - Contato: " + participante.getNumeroDeCelular());
-                System.out.println("     - Numero de emergencia: " + participante.getNumeroDeEmergencia());
-                System.out.println("     - Tipo sangue: " + participante.getTipoSanguineo());
-            }
-            mostrarParticipantesDoCircuito();
-        }
-
-        if (circuito == 0) {
-            menuPrincipal();
-        }
-    }
-
-    private void cancelarCadastroParticipante () {
-        System.out.println("Qual o nome do participante??");
-        System.out.println("1 - Circuito pequeno");
-        System.out.println("2 - Circuito medio");
-        System.out.println("3 - Circuito avancado");
-        System.out.println("0 - Voltar");
-
-        int circuito = entrada.nextInt();
-
-        percorreArrayCircuitos(circuito);
     }
 
     private void circuitoPequeno (Participante participante) {
@@ -219,6 +152,95 @@ public class PraticaIntegradora02 {
             } else {
                 System.out.println("Ok, Nada foi feito!");
                 adicionaParticipanteNoCircuito(participante);
+            }
+        }
+    }
+
+    private void mostrarParticipantesDoCircuito () {
+        System.out.println("De qual circuito voce deseja ver os participantes?");
+        System.out.println("1 - Circuito pequeno");
+        System.out.println("2 - Circuito medio");
+        System.out.println("3 - Circuito avancado");
+        System.out.println("0 - Voltar");
+
+        int circuito = entrada.nextInt();
+
+        percorreArrayCircuitos(circuito);
+    }
+
+    private void percorreArrayCircuitos (int circuito) {
+        if (circuito == 1) {
+            for (Participante participante : listaCircuitoPequeno) {
+                System.out.println("Participante numero " + participante.getNumeroInscricao() +
+                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
+                                    "\n     - RG: " + participante.getRg() +
+                                    "\n     - Idade: " + participante.getIdade() +
+                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
+                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
+                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+            }
+            mostrarParticipantesDoCircuito();
+        }
+
+        if (circuito == 2) {
+            for (Participante participante : listaCircuitoMedio) {
+                System.out.println("Participante numero " + participante.getNumeroInscricao() +
+                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
+                                    "\n     - RG: " + participante.getRg() +
+                                    "\n     - Idade: " + participante.getIdade() +
+                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
+                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
+                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+            }
+            mostrarParticipantesDoCircuito();
+        }
+
+        if (circuito == 3) {
+            for (Participante participante : listaCircuitoAvancado) {
+                System.out.println("Participante numero " + participante.getNumeroInscricao() +
+                                    "\n     - Nome completo: " + participante.getNome() + " " + participante.getSobrenome() +
+                                    "\n     - RG: " + participante.getRg() +
+                                    "\n     - Idade: " + participante.getIdade() +
+                                    "\n     - Contato: " + participante.getNumeroDeCelular() +
+                                    "\n     - Numero de emergencia: " + participante.getNumeroDeEmergencia() +
+                                    "\n     - Tipo sangue: " + participante.getTipoSanguineo());
+            }
+            mostrarParticipantesDoCircuito();
+        }
+
+        if (circuito == 0) {
+            menuPrincipal();
+        }
+    }
+
+    private void cancelarCadastroParticipante () {
+        System.out.println("Qual o nome do participante?");
+        System.out.println("0 - Voltar");
+
+        String escolhaUser = entrada.next();
+
+        excluirParticipante(escolhaUser);
+    }
+
+    private void excluirParticipante(String escolhaUser) {
+        if (escolhaUser.equals("0"))
+            menuPrincipal();
+
+        percorreArrayCircuitoParaExcluir(listaCircuitoPequeno,escolhaUser);
+        percorreArrayCircuitoParaExcluir(listaCircuitoMedio,escolhaUser);
+        percorreArrayCircuitoParaExcluir(listaCircuitoAvancado,escolhaUser);
+
+        // só chega aqui se não encontrar um participante!
+        System.out.println("Nao foi encontrado um participante com esse nome! \n");
+        menuPrincipal();
+    }
+
+    private void percorreArrayCircuitoParaExcluir(List<Participante> listaCircuito, String escolhaUser) {
+        for (Participante participante : listaCircuito) {
+            if (participante.getNome().equals(escolhaUser)) {
+                listaCircuito.remove(participante);
+                System.out.println("Participante excluido!! \n");
+                menuPrincipal();
             }
         }
     }
