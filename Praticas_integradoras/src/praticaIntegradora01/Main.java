@@ -8,28 +8,28 @@ public class Main {
                 "Lima","Santiado de Chile", "Lisboa", "Tokio"
         };
         float[][] matrizTemperaturas = new float[][] {
-                {-2,-2,-8,4,6,5,0,-7,-1,-10},
-                {33,32,27,37,42,43,39,26,31,35}
+                {-2,33}, {-2,32}, {-8,27}, {4,37}, {6,42}, {5,43}, {0,39}, {-7,26}, {-1,31}, {-10,35}
         };
 
-        float minima = matrizTemperaturas[0][0];
-        float maxima = matrizTemperaturas[1][0];
-        String cidadeMinima = "";
-        String cidadeMaxima = "";
+        float temperaturaMinima = matrizTemperaturas[0][0];
+        float temperaturaMaxima = matrizTemperaturas[1][0];
+        String cidadeTemperaturaMinima = "";
+        String cidadeTemperaturaMaxima = "";
+        int TEMP_MIN = 0;
+        int TEMP_MAX = 1;
 
-        for (int x = 0; x < 2; x++) { // linhas / se x = 0 -> minima, se x = 1 -> maxima
-            for (int y = 0; y < 10; y++) { // colunas
-                if (matrizTemperaturas[0][y] < minima) {
-                    minima = matrizTemperaturas[0][y];
-                    cidadeMinima = arrayCidade[y];
-                }
-                if (matrizTemperaturas[1][y] > maxima) {
-                    maxima = matrizTemperaturas[1][y];
-                    cidadeMaxima = arrayCidade[y];
-                }
+        for (int x = 0; x < arrayCidade.length; x++) {
+            if (matrizTemperaturas[x][TEMP_MIN] < temperaturaMinima) {
+                temperaturaMinima = matrizTemperaturas[x][TEMP_MIN];
+                cidadeTemperaturaMinima = arrayCidade[TEMP_MIN];
+            }
+            if (matrizTemperaturas[x][TEMP_MAX] > temperaturaMaxima) {
+                temperaturaMaxima = matrizTemperaturas[x][TEMP_MAX];
+                cidadeTemperaturaMaxima = arrayCidade[TEMP_MAX];
             }
         }
-        System.out.println("A cidade " + cidadeMaxima + " ficou com a maxima de: " + maxima +
-                " e " + cidadeMinima + " ficou com a mínima de: " + minima);
+
+        System.out.println("A cidade " + cidadeTemperaturaMaxima + " ficou com a maxima de: " + temperaturaMaxima +
+                " e " + cidadeTemperaturaMinima + " ficou com a mínima de: " + temperaturaMinima);
     }
 }
