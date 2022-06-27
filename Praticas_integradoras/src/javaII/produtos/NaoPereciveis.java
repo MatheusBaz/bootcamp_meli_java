@@ -1,4 +1,4 @@
-package praticaIntegradora04.exercicio02;
+package javaII.produtos;
 
 public class NaoPereciveis extends Produto{
     String tipo;

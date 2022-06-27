@@ -1,4 +1,4 @@
-package praticaIntegradora02;
+package cadastroCompeticao;
 
 public class Participante {
     private String rg;

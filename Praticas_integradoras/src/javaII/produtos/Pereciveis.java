@@ -1,6 +1,4 @@
-package praticaIntegradora04.exercicio02;
-
-import java.time.LocalDate;
+package javaII.produtos;
 
 public class Pereciveis extends Produto{
     int diasParaVencer;

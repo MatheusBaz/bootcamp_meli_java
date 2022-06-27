@@ -1,4 +1,4 @@
-package praticaIntegradora02;
+package cadastroCompeticao;
 
 import java.util.ArrayList;
 import java.util.List;

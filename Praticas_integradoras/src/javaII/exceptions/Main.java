@@ -1,4 +1,4 @@
-package praticaIntegradora04.exercicio01;
+package javaII.exceptions;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package praticaIntegradora01;
+package temperaturaCidades;
 
 public class Main {
 
@@ -15,8 +15,8 @@ public class Main {
         float temperaturaMaxima = matrizTemperaturas[1][0];
         String cidadeTemperaturaMinima = "";
         String cidadeTemperaturaMaxima = "";
-        int TEMP_MIN = 0;
-        int TEMP_MAX = 1;
+        final int TEMP_MIN = 0;
+        final int TEMP_MAX = 1;
 
         for (int x = 0; x < arrayCidade.length; x++) {
             if (matrizTemperaturas[x][TEMP_MIN] < temperaturaMinima) {

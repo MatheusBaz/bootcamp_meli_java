@@ -1,4 +1,4 @@
-package praticaIntegradora03;
+package calculoIMC;
 
 public class Pessoa {
     String nome;

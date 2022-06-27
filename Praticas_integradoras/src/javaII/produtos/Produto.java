@@ -1,4 +1,4 @@
-package praticaIntegradora04.exercicio02;
+package javaII.produtos;
 
 public class Produto {
     String nome;
