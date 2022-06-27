@@ -1,4 +1,4 @@
-package praticaIntegradora04;
+package praticaIntegradora04.exercicio01;
 
 public class PraticaExcecoes {
     private int a = 0;
