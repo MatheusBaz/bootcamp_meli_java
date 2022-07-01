@@ -49,18 +49,19 @@ public class Corrida {
     }
 
     public void defineVencedor(){
-        double maiorValor = 0;
-        String placaVeiculoVencedor = "";
-        for (Veiculo veiculo : listaVeiculos) {
-            Veiculo vencedor = veiculo;
-            double valor = (veiculo.getVelocidade() * (veiculo.getAceleracao() / 2)) /
-                    (veiculo.getAnguloDeGiro() * (veiculo.getPeso() - veiculo.getRodas() * 100));
-            if (maiorValor < valor) {
-                maiorValor = valor;
-                placaVeiculoVencedor = veiculo.getPlaca();
-            }
-        }
-        System.out.printf("Vencedor da corrida: %s ", placaVeiculoVencedor);
+         Veiculo veiculoVencedor = this.listaVeiculos.stream()
+                .reduce((vencedor, novoVeiculo) -> {
+                    if (this.calculaVencedor(vencedor) > this.calculaVencedor(novoVeiculo)){
+                        return vencedor;
+                    }
+                    return novoVeiculo;
+                }).get();
+        System.out.printf("Vencedor da corrida: %s ", veiculoVencedor.getPlaca());
+    }
+
+    public double calculaVencedor(Veiculo veiculo) {
+        return (veiculo.getVelocidade() * (veiculo.getAceleracao() / 2)) /
+        (veiculo.getAnguloDeGiro() * (veiculo.getPeso() - veiculo.getRodas() * 100));
     }
 
     public void socorrerCarro(String placa) {
