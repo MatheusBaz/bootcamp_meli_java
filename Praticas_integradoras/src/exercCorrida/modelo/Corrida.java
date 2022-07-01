@@ -51,7 +51,7 @@ public class Corrida {
     public void defineVencedor(){
          Veiculo veiculoVencedor = this.listaVeiculos.stream()
                 .reduce((vencedor, novoVeiculo) -> {
-                    if (this.calculaVencedor(vencedor) > this.calculaVencedor(novoVeiculo)){
+                    if (this.calculaScoreIndividual(vencedor) > this.calculaScoreIndividual(novoVeiculo)){
                         return vencedor;
                     }
                     return novoVeiculo;
@@ -59,7 +59,7 @@ public class Corrida {
         System.out.printf("Vencedor da corrida: %s ", veiculoVencedor.getPlaca());
     }
 
-    public double calculaVencedor(Veiculo veiculo) {
+    public double calculaScoreIndividual(Veiculo veiculo) {
         return (veiculo.getVelocidade() * (veiculo.getAceleracao() / 2)) /
         (veiculo.getAnguloDeGiro() * (veiculo.getPeso() - veiculo.getRodas() * 100));
     }
