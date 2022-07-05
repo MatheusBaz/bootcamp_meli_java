@@ -1,4 +1,4 @@
-package com.example.numeros_romanos.controller;
+package com.example.numeros_romanos.numerosRomanos.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

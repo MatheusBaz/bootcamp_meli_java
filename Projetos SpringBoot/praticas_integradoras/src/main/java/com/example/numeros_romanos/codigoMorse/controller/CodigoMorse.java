@@ -1,4 +1,4 @@
-package com.example.numeros_romanos.controller;
+package com.example.numeros_romanos.codigoMorse.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
