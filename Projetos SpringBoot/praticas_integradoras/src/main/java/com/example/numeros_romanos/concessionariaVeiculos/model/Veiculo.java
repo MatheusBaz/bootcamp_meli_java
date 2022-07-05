@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -13,7 +13,7 @@ import java.util.List;
 public class Veiculo {
     private String marca, modelo, moedaCurrency;
     private int quilometrosRodados, portas, contadorVisitante;
-    private Date dataManofatura;
+    private LocalDateTime dataManofatura;
     private double preco;
     private List<Servico> servicos;
 

@@ -4,8 +4,11 @@ import com.example.numeros_romanos.concessionariaVeiculos.dto.VeiculoDTO;
 import com.example.numeros_romanos.concessionariaVeiculos.model.Veiculo;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class VeiculoRepo {
@@ -21,15 +24,34 @@ public class VeiculoRepo {
     }
 
     public List<VeiculoDTO> getAllVeiculo() {
-        List<VeiculoDTO> veiculoDTOList = new ArrayList<>();
+        return this.listaVeiculos.stream()
+                .map(VeiculoDTO::new)
+                .collect(Collectors.toList());
+    }
 
-        for(Veiculo vei : this.listaVeiculos){
-            vei.incrementaContadorVisitas();
-            VeiculoDTO veiculoDTO = new VeiculoDTO(vei);
-            veiculoDTOList.add(veiculoDTO);
+    public List<VeiculoDTO> getVeiculoByDate(LocalDateTime since, LocalDateTime to) {
+        return this.listaVeiculos.stream()
+                .filter(x -> (x.getDataManofatura().isAfter(since)
+                        && x.getDataManofatura().isBefore(to)) ||
+                        (x.getDataManofatura().isEqual(since)
+                         || x.getDataManofatura().isEqual(to))
+                )
+                .map(VeiculoDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<VeiculoDTO> getVeiculoByPrice(double priceSince, double priceTo) {
+        if (priceSince < priceTo) {
+            throw new RuntimeException("Since não pode ser menor que to");
         }
+        return this.listaVeiculos.stream()
+                .filter(x -> x.getPreco() >= priceSince && x.getPreco() <= priceTo)
+                .map(VeiculoDTO::new)
+                .collect(Collectors.toList());
+    }
 
-        return veiculoDTOList;
+    public Veiculo getVeiculoById(int id) {
+        return this.listaVeiculos.get(id);
     }
 
 

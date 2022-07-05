@@ -1,18 +1,15 @@
 package com.example.numeros_romanos.concessionariaVeiculos.dto;
 
-import com.example.numeros_romanos.concessionariaVeiculos.model.Servico;
 import com.example.numeros_romanos.concessionariaVeiculos.model.Veiculo;
-import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Data
 public class VeiculoDTO {
     private String marca, modelo, moedaCurrency;
     private int quilometrosRodados, portas, contadorVisitante;
-    private Date dataManofatura;
+    private LocalDateTime dataManofatura;
     private double preco;
 
     public VeiculoDTO(Veiculo veiculo) {
