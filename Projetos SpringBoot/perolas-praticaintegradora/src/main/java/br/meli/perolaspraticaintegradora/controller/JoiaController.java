@@ -38,8 +38,8 @@ public class JoiaController {
     }
 
     @PutMapping("/atualizar")
-    ResponseEntity<Joia> atualizar(@RequestParam Long num_ident) {
-        return ResponseEntity.ok(service.update(num_ident));
+    ResponseEntity<Joia> atualizar(@RequestBody Joia joia) {
+        return ResponseEntity.ok(service.update(joia));
     }
 
 

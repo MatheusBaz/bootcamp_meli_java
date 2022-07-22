@@ -14,10 +14,15 @@ public class JoiaService {
     private IJoiaRepo repo;
 
     public long add(Joia joia){
+        if (joia.getNumeroIdentificacao() > 0) {
+            return -1;
+        }
+
         Joia savedObject = repo.save(joia);
         if (savedObject != null) {
             return savedObject.getNumeroIdentificacao();
         }
+
         return -1;
     }
 
@@ -29,8 +34,8 @@ public class JoiaService {
         repo.deleteById(num_ident);
     }
 
-    public Joia update(Long num_ident) {
-        Joia findedJoia = repo.findById(num_ident).get();
+    public Joia update(Joia joia) {
+        Joia findedJoia = repo.findById(joia.getNumeroIdentificacao()).get();
         findedJoia.setMaterial("prata");
 
         return repo.save(findedJoia);
